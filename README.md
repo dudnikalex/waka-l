@@ -1,2 +1,6 @@
 # waka-l
-svd_compress
+
+```
+pip install -r requirements.txt  
+flask run
+```
