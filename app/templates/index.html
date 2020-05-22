@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+    {{ image_form.hidden_tag() }}
+    {{ image_form.image() }}
+    {{ image_form.rank(placeholder="Ранг аппроксимации") }}
+    <input type="submit" value="Omшaka/lumb">
+    </form>
+{% endblock %}
+
