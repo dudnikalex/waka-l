@@ -5,6 +5,7 @@ from app.forms import ImageForm
 import numpy as np
 from PIL import Image
 
+
 @app.route('/', methods=["GET", "POST"])
 def index():
     image_form = ImageForm()
@@ -12,8 +13,9 @@ def index():
         image = image_form.image.data
         rank = image_form.rank.data
         image.save(image.filename)
-        return render_template('result.html', filename=svd_compress(image.filename, rank)) 
+        return render_template('result.html', filename=svd_compress(image.filename, rank))
     return render_template('index.html', image_form=image_form)
+
 
 def svd_compress(filename, rank):
     image = np.array(Image.open(filename))
@@ -50,9 +52,8 @@ def svd_compress(filename, rank):
 
     new_image[new_image < 0] = 0
     new_image[new_image > 1] = 1
-    
-    new_image = (new_image * 255).astype(np.uint8)     
+
+    new_image = (new_image * 255).astype(np.uint8)
     im = Image.fromarray(new_image)
     im.save("app/static/compressed_{}_{}".format(rank, filename))
     return "static/compressed_{}_{}".format(rank, filename)
-
