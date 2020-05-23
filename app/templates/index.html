@@ -3,6 +3,9 @@
 {% block content %}
     <form method="post" enctype="multipart/form-data">
     {{ image_form.hidden_tag() }}
+    {% for error in image_form.errors %}
+    <h4>{{image_form.errors[error][0]}}</h4>
+    {% endfor %}
     {{ image_form.image() }}
     {{ image_form.rank(placeholder="Ранг аппроксимации") }}
     <input type="submit" value="Omшaka/lumb">

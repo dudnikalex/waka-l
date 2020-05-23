@@ -4,5 +4,5 @@ from flask_wtf.file import FileField
 from wtforms.validators import DataRequired
 
 class ImageForm(FlaskForm):
-    image = FileField('Image', validators=[DataRequired()])
-    rank = IntegerField('Rank', validators=[DataRequired()])
+    image = FileField('Image', validators=[DataRequired("Please, select an image")])
+    rank = IntegerField('Rank', validators=[DataRequired("Please, enter valid rank")])
