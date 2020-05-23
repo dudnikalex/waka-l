@@ -53,6 +53,6 @@ def svd_compress(filename, rank):
     
     new_image = (new_image * 255).astype(np.uint8)     
     im = Image.fromarray(new_image)
-    im.save("app/static/compressed_" + filename)
-    return "/static/compressed_" + filename
+    im.save("app/static/compressed_{}_{}".format(rank, filename))
+    return "static/compressed_{}_{}".format(rank, filename)
 
